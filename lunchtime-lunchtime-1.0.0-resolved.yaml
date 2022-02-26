@@ -1,0 +1,103 @@
+---
+openapi: 3.0.0
+info:
+  title: lunchtime
+  description: lunchtime swagger
+  version: 1.0.0
+servers:
+  - url: http://3.35.216.95:8888
+    description: JSON Placeholder API
+paths:
+  /api/store:
+    post:
+      tags:
+        - api
+      summary: stroe 리스트 받기
+      description: stores 받기
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api_store_body"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200"
+  /api/tag:
+    post:
+      tags:
+        - api
+      summary: tag 리스트 받기
+      description: tag들 받기
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api_tag_body"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/inline_response_200_1"
+components:
+  schemas:
+    api_store_body:
+      required:
+        - selected
+        - x
+        - "y"
+      type: object
+      properties:
+        selected:
+          type: array
+          items:
+            type: string
+            default: 떡볶이
+        x:
+          type: integer
+        y:
+          type: integer
+    inline_response_200:
+      type: object
+      properties:
+        stores:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              distance:
+                type: integer
+              x:
+                type: number
+              y:
+                type: number
+              hashTags:
+                type: array
+                items:
+                  type: string
+    api_tag_body:
+      required:
+        - x
+        - "y"
+      type: object
+      properties:
+        x:
+          type: integer
+        y:
+          type: integer
+    inline_response_200_1:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
