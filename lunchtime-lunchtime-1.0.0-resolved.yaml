@@ -5,20 +5,24 @@ info:
   description: lunchtime swagger
   version: 1.0.0
 servers:
-  - url: http://3.35.216.95:8888
-    description: JSON Placeholder API
+- url: https://virtserver.swaggerhub.com/lunchtime/lunchtime/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: https://
+  description: SwaggerHub API Auto Mocking
+- url: http://3.35.216.95:8888
+  description: JSON Placeholder API
 paths:
   /api/store:
     post:
       tags:
-        - api
+      - api
       summary: stroe 리스트 받기
       description: stores 받기
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api_store_body"
+              $ref: '#/components/schemas/api_store_body'
         required: true
       responses:
         "200":
@@ -26,18 +30,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200"
+                $ref: '#/components/schemas/inline_response_200'
   /api/tag:
     post:
       tags:
-        - api
+      - api
       summary: tag 리스트 받기
       description: tag들 받기
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api_tag_body"
+              $ref: '#/components/schemas/api_tag_body'
         required: true
       responses:
         "200":
@@ -45,14 +49,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200_1"
+                $ref: '#/components/schemas/inline_response_200_1'
 components:
   schemas:
     api_store_body:
       required:
-        - selected
-        - x
-        - "y"
+      - selected
+      - x
+      - "y"
       type: object
       properties:
         selected:
@@ -86,8 +90,8 @@ components:
                   type: string
     api_tag_body:
       required:
-        - x
-        - "y"
+      - x
+      - "y"
       type: object
       properties:
         x:
